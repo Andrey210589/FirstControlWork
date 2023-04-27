@@ -28,3 +28,33 @@ void ShowArray(string[] array) //Вывод массива
     Console.Write(" }");
     Console.WriteLine();
 }
+string[] CreateNewArrayFromThreeCharString(string[] array)// Создание массива состоящего из строк с 3 и меньше символами
+{
+    string s = string.Empty;
+    int count = 0;
+    string[] resultArray = new string[count];
+    string[] tempArray = new string[array.Length];
+    for (int i = 0; i < array.Length; i++)
+    {
+        s = array[i];
+        if (s.Length <= 3)
+        {
+            // Console.WriteLine("count"+ count+"= "+ s);
+            tempArray[count] = s;
+            count++;
+            resultArray = new string[count];
+        }
+    }
+    for (int j = 0; j < count; j++)
+    {
+        resultArray[j] = tempArray[j];
+    }
+    return resultArray;
+}
+Console.WriteLine("Input array size: ");
+int size = Convert.ToInt32(Console.ReadLine());
+string[] newArray = CreateStringArray(size);
+ShowArray(newArray);
+string[] result = CreateNewArrayFromThreeCharString(newArray);
+Console.WriteLine("Result array is: ");
+ShowArray(result);
